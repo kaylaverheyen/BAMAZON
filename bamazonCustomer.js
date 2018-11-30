@@ -1,5 +1,5 @@
 
-
+require("dotenv").config();
 //installed 
 const mysql = require("mysql");
 //installed 
@@ -15,19 +15,32 @@ var connection = mysql.createConnection({
     // Your username
     user: "root",
     // Your password
-    password: database.password,
+    password: process.env.MYSQL_PW,
     database: "bamazonDB"
 });
 
 // connect to the mysql server and sql database
 connection.connect(function (err) {
     if (err) throw err;
+    console.log("connected as id " + connection.threadId + "\n");
     // run the start function after the connection is made to prompt the user
-    start();
+    displayProducts();
 });
 
 // function which prompts the user for what action they should take
-function start() {
+function displayProducts() {
+    console.log("products available on BAMAZON: ");
+    connection.query("SELECT * FROM products", function (err, res) {
+        if (err) {
+            throw err;
+        };
+        var data = res.forEach(row => console.log(`id: ${row.id} | ${row.product_name} | $ ${row.price} | how many left: ${row.stock_quantity} | Dept: ${row.department_name}`));
+        // console.log(data);
+    });
+};
+
+
+function makeBid() {
     inquirer
         .prompt({
             name: "postOrBid",
