@@ -21,14 +21,28 @@ This storefront CLI lets uses preview products using a MySQL database. Using inq
 
 </br>
 
-### Screen 2: Inquirer prompts
+### Screen 2: Inquirer Prompts
 
-![Inquirer prompts]()
+![Inquirer prompts](/images/inquirer_prompt_sucess.png)
 
-* User is prompted to purchase items.
+* User is asked what product would they like to buy and how many?
 
 * Utilizing node.js, and inquirer.
 
-* the mysql database is updated.
+</br>
+
+### Screen 3: Inquirer Prompts
+
+![Inquirer prompts](/images/updated_product_table.png)
+
+* the mysql database is updated!
+
+</br>
+
+### Screen 4: Insufficient Quantity
+
+![Inquirer prompts](/images/insufficient_quantity.png)
+
+* the user is rompted with insufficient quantity, because the databse didn't have enough products. 
 
 </br>
